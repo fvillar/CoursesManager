@@ -13,7 +13,7 @@ class ImmutableDataGrid extends Component {
 
     initialState() {
         return {
-            columns: this.props.columns,
+            columns: this.props.options.columns,
             // sortType: 'client' //server
         };
     }
@@ -74,6 +74,8 @@ class ImmutableDataGrid extends Component {
     }
 
     renderHead() {
+        console.log('this.state.options',this.state);
+        
 
         let columns = this.state.columns.map((v, i) => {
             let sortIcon = '';
@@ -119,7 +121,7 @@ class ImmutableDataGrid extends Component {
     renderRows() {
 
         let rows = this.props.immutableData.map((r, i) => {
-            let dataCells = this.props.columns.map((d, index) => {
+            let dataCells = this.props.options.columns.map((d, index) => {
                 return <td key={index}>{r.get(d.key)}</td>;
             });
             return <tr key={i}>{dataCells}</tr>;

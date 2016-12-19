@@ -15,25 +15,27 @@ class DataTable extends Component {
 
         let coursesList = this.props.courses.get('coursesList');
 
-        /*
-            key: is the key for the item
-            name: is the name of the clomn header
-            serverSort: this will sort the list in the server and its expecting a async call to that method
-            sortOrder: it could be ascending('asc') or descending('desc'). NOTE: It could be only in one column
-        */
-        var columns = [{
-            key: 'Id',
-            name: 'ID',
-            // serverSort: CourseActions.sortCoursesInServerAsync,
-            clientSort: true,
-            sortOrder: 'asc'         
-        },
-        {
-            key: 'title',
-            name: 'Title',
-            // serverSort: CourseActions.sortCoursesInServerAsync,
-            clientSort: true
-        }];
+        let options = {
+            /*
+                key: is the key for the item
+                name: is the name of the clomn header
+                serverSort: this will sort the list in the server and its expecting a async call to that method
+                sortOrder: it could be ascending('asc') or descending('desc'). NOTE: It could be only in one column
+            */
+            columns: [{
+                key: 'Id',
+                name: 'ID',
+                // serverSort: CourseActions.sortCoursesInServerAsync,
+                clientSort: true,
+                sortOrder: 'asc'
+            },
+            {
+                key: 'title',
+                name: 'Title',
+                // serverSort: CourseActions.sortCoursesInServerAsync,
+                clientSort: true
+            }]
+        };
 
         /*
             columns: is the configuration of the columns and its name for the header
@@ -43,8 +45,8 @@ class DataTable extends Component {
         return (
             <div className='well'>
                 <ImmutableDataGrid
-                    columns={columns}
-                    dispatch={this.props.dispatch}                   
+                    options={options}
+                    dispatch={this.props.dispatch}
                     immutableData={coursesList} />
 
             </div>
