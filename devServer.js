@@ -6,7 +6,7 @@ var config = require('./webpack.config.dev');
 var open = require('open');
 
 /* eslint-disable no-console */
-const port = 7771;
+const port = 7775;
 var app = express();
 var compiler = webpack(config);
 
