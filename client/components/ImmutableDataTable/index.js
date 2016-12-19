@@ -74,9 +74,7 @@ class ImmutableDataGrid extends Component {
     }
 
     renderHead() {
-        console.log('this.state.options',this.state);
         
-
         let columns = this.state.columns.map((v, i) => {
             let sortIcon = '';
 

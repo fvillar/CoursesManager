@@ -42,8 +42,6 @@ function coursesReducer(state = courseInitialState.courses, action) {
             return state;
 
         case constants.SORT_COURSES_CLIENT:
-            console.log('sortColumn, sortOrder', action.sortColumn, action.sortOrder);
-
             if (action.sortOrder == 'asc') {
                 state = state.set('coursesList', state.get('coursesList').sort(
                     (a, b) => {
